@@ -58,20 +58,25 @@ class FFNavigationBarItem extends StatelessWidget {
   Center _makeLabel(String label) {
     bool isSelected = _isItemSelected();
     return Center(
-      child: Text(
-        label,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: isSelected
-              ? theme.selectedItemTextStyle.fontSize
-              : theme.unselectedItemTextStyle.fontSize,
-          fontWeight: isSelected
-              ? theme.selectedItemTextStyle.fontWeight
-              : theme.unselectedItemTextStyle.fontWeight,
-          color: isSelected
-              ? selectedLabelColor ?? theme.selectedItemLabelColor
-              : theme.unselectedItemLabelColor,
-          letterSpacing: isSelected ? 1.1 : 1.0,
+      child: Padding(
+        padding: isSelected
+            ? theme.selectedLabelPadding
+            : theme.unSelectedLabelPadding,
+        child: Text(
+          label,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: isSelected
+                ? theme.selectedItemTextStyle.fontSize
+                : theme.unselectedItemTextStyle.fontSize,
+            fontWeight: isSelected
+                ? theme.selectedItemTextStyle.fontWeight
+                : theme.unselectedItemTextStyle.fontWeight,
+            color: isSelected
+                ? selectedLabelColor ?? theme.selectedItemLabelColor
+                : theme.unselectedItemLabelColor,
+            letterSpacing: isSelected ? 1.1 : 1.0,
+          ),
         ),
       ),
     );
@@ -94,7 +99,12 @@ class FFNavigationBarItem extends StatelessWidget {
           backgroundColor: isSelected
               ? selectedBackgroundColor ?? theme.selectedItemBackgroundColor
               : theme.unselectedItemBackgroundColor,
-          child: _makeIcon(iconData),
+          child: Padding(
+            padding: isSelected
+                ? theme.selectedIconPadding
+                : theme.unSelectedIconPadding,
+            child: _makeIcon(iconData),
+          ),
         ),
       ),
     );

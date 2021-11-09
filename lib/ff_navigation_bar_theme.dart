@@ -10,6 +10,11 @@ class FFNavigationBarTheme {
   final Color unselectedItemIconColor;
   final Color unselectedItemLabelColor;
 
+  EdgeInsets selectedIconPadding;
+  EdgeInsets unSelectedIconPadding;
+  EdgeInsets selectedLabelPadding;
+  EdgeInsets unSelectedLabelPadding;
+
   final TextStyle selectedItemTextStyle;
   final TextStyle unselectedItemTextStyle;
 
@@ -46,5 +51,9 @@ class FFNavigationBarTheme {
     this.itemWidth = kDefaultItemWidth,
     this.barHeight = 56.0,
     this.showSelectedItemShadow = true,
+    this.selectedIconPadding = EdgeInsets.zero,
+    this.selectedLabelPadding = EdgeInsets.zero,
+    this.unSelectedIconPadding = EdgeInsets.zero,
+    this.unSelectedLabelPadding = EdgeInsets.zero,
   });
 }
